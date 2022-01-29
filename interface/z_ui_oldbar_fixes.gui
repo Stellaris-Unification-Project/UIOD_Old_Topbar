@@ -1,0 +1,219 @@
+guiTypes = {
+	### TOPBAR FOR MUSICPLAYER
+	positionType = {
+		name = "maingui_lower_topbar_size"
+		# width less than x increase size with y
+		position = { x = 1399 y = 220 }
+	}
+	containerWindowType = {
+		name = "maingui_lower_topbar"
+		size = { width = 131 height = 36 }
+		position = { x = -131 y = 35 }
+		if_resolution = {
+			min_width = 1440
+			size = { width = 328 height = 36 }
+			position = { x = -328 y = 35 }
+		}
+		orientation = upper_right
+		clipping = no
+		background = {
+			name = "background"
+			quadTextureSprite = "GFX_topbar_background_cutoff"
+			position = { x = 0 y = 0 }
+		}
+		buttonType = {
+			name = "music_controls_toggle"
+			quadTextureSprite = "GFX_music_commands_icon"
+			position = { x = 33 y = 0 }
+			pdx_tooltip = "MUSIC_CONTROLS_TOGGLE_VISIBLE"
+			clicksound = interface
+			oversound = no_sound
+			alwaysTransparent = yes
+		}
+		####################
+		# Music
+		####################
+		containerWindowType = {
+			name = "music_commands_win"
+			size = { width = 92 height = 32 }
+			position = { x = -145 y = 0 }
+			if_resolution = {
+				min_width = 1440
+				size = { width = 96 height = 32 }
+				position = { x = -145 y = 0 }
+			}
+			orientation = upper_right
+			clipping = no
+			containerWindowType = {
+				name = "topbar_bar_04"
+				size = { width = 100 height = 25 }
+				position = { x = -10 y = 6 }
+				background = {
+					name = "topbar_bar_03"
+					spriteType = "GFX_topbar_bar_03"
+					#alwaysTransparent = yes
+				}
+			}
+			buttonType = {
+				name = "music_pause_button"
+				quadTextureSprite = "GFX_music_pause_button"
+				position = { x = 0 y = 0 }
+				clicksound = confirmation
+				oversound = no_sound
+			}
+			buttonType = {
+				name = "music_next_button"
+				quadTextureSprite = "GFX_music_next_button"
+				position = { x = 30 y = 0 }
+				pdx_tooltip = "MUSICPLAYER_NEXT"
+				oversound = no_sound
+				clicksound = increment_click
+			}
+			buttonType = {
+				name = "musicplayer_button"
+				quadTextureSprite = "GFX_musicplayer_button"
+				position = { x = 60 y = 0 }
+				pdx_tooltip = "MUSICPLAYER_OPEN_PLAYER"
+				clicksound = interface
+				oversound = no_sound
+			}
+		}
+	}
+	containerWindowType = {
+		name = "outliner_toggle_window"
+		size = { width = 49 height = 67 }
+		position = { x = -47 y = 35 }
+		orientation = upper_right
+		moveable = no
+		clipping = yes
+		background = {
+			name = "background"
+			quadTextureSprite = "GFX_tiled_window_transparent" # makes window moveable
+		}
+		buttonType = {
+			name = "outliner_toggle"
+			quadTextureSprite = "outliner_button"
+			position = { x = -4 y = -4 }
+			shortcut = "o"
+			clicksound = interface
+			oversound = mouse_over
+		}
+		buttonType = {
+			name = "observer_outliner_toggle"
+			quadTextureSprite = "observer_outliner_button"
+			position = { x = -4 y = 34 }
+			#shortcut = "o"
+			clicksound = interface
+			oversound = mouse_over
+		}
+	}
+	containerWindowType = {
+		name = "outliner_base_window"
+		size = { width = 300 height = 20 }
+		position = { x = -340 y = 140 }
+		orientation = upper_right
+		containerWindowType = {
+			name = "outliner_window"
+			size = { width = 300 height = 2 }
+			show_position = { x = -260 y = -76 }
+			hide_position = { x = 20 y = -76 }
+			animation_time = 200
+			animation_type = decelerated
+			orientation = upper_right
+			moveable = no
+			background = {
+				name = "background"
+				quadTextureSprite = "GFX_plain_bg_tile"
+			}
+			instantTextBoxType = {
+				name = "header"
+				font = "malgun_goth_24"
+				text = "OUTLINER"
+				position = { x = 13 y = 5 }
+				maxWidth = 150
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+			}
+			buttonType = {
+				name = "options"
+				quadTextureSprite = "GFX_outliner_options_button"
+				position = { x = -76 y = 6 }
+				pdx_tooltip = "OUTLINER_OPTIONS_TOOLTIP"
+				orientation = "UPPER_RIGHT"
+				oversound = "no_sound"
+				clicksound = "click_outliner"
+			}
+			buttonType = {
+				name = "rearrange"
+				quadTextureSprite = "GFX_button_sort_reorder_planets"
+				size = { x = 20 y = 20 }
+				position = { x = -105 y = 1 }
+				pdx_tooltip = "OUTLINER_REARRANGE_TOOLTIP"
+				orientation = upper_right
+				oversound = "no_sound"
+				clicksound = "click_outliner"
+			}
+			iconType = {
+				name = "outliner_header_line"
+				quadTextureSprite = "GFX_line_center"
+				position = { x = -256 y = 28 }
+				orientation = center_up
+				alwaysTransparent = yes
+			}
+			smoothListBoxType = {
+				name = "list"
+				position = { x = 0 y = 40 }
+				priority = 100
+				size = { x = 286 y = 0 }
+				borderSize = { x = 0 y = 0 }
+				scrollbarType = "standardlistbox_slider_thick"
+				spacing = -1
+				offset = { x = 0 y = 0 } 
+				defaultSelection = yes
+			}
+		}
+		containerWindowType = {
+			name = "observer_window"
+			size = { width = 300 height = 20 }
+			show_position = { x = -260 y = -76 }
+			hide_position = { x = 20 y = -76 }
+			animation_time = 200
+			animation_type = decelerated
+			orientation = upper_right
+			moveable = no
+			background = {
+				name = "background"
+				quadTextureSprite = "GFX_plain_bg_tile"
+			}
+			instantTextBoxType = {
+				name = "observer header"
+				font = "malgun_goth_24"
+				text = "OBSERVER"
+				position = { x = 13 y = 5 }
+				maxWidth = 150
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+			}
+			buttonType = {
+				name = "unobserve"
+				quadTextureSprite = "GFX_outliner_unobserve_button"
+				position = { x = -110 y = 3 }
+				pdx_tooltip = "OUTLINER_UNOBSERVE_TOOLTIP"
+				orientation = "UPPER_RIGHT"
+				oversound = no_sound
+			}
+			smoothListBoxType = {
+				name = "list"
+				position = { x = 2 y = 42 }
+				priority = 100
+				size = { x = 286 y = 0 }
+				borderSize = { x = 0 y = 0 }
+				scrollbarType = "standardlistbox_slider_thick"
+				spacing = -1
+				defaultSelection = yes
+			}
+		}
+	}
+}
